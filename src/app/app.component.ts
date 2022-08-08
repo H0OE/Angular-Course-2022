@@ -40,7 +40,17 @@ export class AppComponent {
 
     this.getREST(1,2,'hola')
 
+    const person = {
+      id: 1,
+      name: "Pelo",
+      country: {
+        idCountry: 3,
+        cod: "Si"
+      }
+    }
 
+    const {country} = person
+    console.log(country)
 
   }
 
