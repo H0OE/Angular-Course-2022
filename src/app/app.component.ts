@@ -27,5 +27,11 @@ export class AppComponent {
 
     const auxEntries = Object.entries(auxJSON)
     console.log(auxEntries)
+
+    const auxKeys = Object.keys(auxJSON)
+    console.log(auxKeys)
+
+    const auxValues = Object.values(auxJSON)
+    console.log(auxValues)
   }
 }
