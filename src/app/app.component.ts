@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular2022';
+
+  constructor(){
+    const A = {'a', 'b', 'c', 'd', 'e'};
+    const auxSplice = A.splice(1,1)
+    console.log(A, auxSplice)
+  }
 }
