@@ -25,6 +25,7 @@ export class AppComponent {
       lastName: 'Berto'
     }
 
-    
+    const auxEntries = Object.entries(auxJSON)
+    console.log(auxEntries)
   }
 }
