@@ -33,5 +33,18 @@ export class AppComponent {
 
     const auxValues = Object.values(auxJSON)
     console.log(auxValues)
+
+    const b = [1,2,3,4,5,6,7]
+    const c = [...b, 7,8,9,10]
+    console.log("Spread", c)
+
+    this.getREST(1,2,'hola')
+
+
+
+  }
+
+  getREST(...params: any[]){
+    console.log('rest', params)
   }
 }
