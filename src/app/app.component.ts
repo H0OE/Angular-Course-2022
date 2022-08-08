@@ -12,5 +12,19 @@ export class AppComponent {
     const A = ['a', 'b', 'c', 'd', 'e'];
     const auxSplice = A.splice(1,1);
     console.log(A, auxSplice)
+
+
+    const auxReduce = [1,2,3,4,5].reduce((prev, value, index)=>{
+      return prev+value
+    },0)
+    console.log(auxReduce)
+
+    const auxJSON = {
+      id:1,
+      name: 'Chasko',
+      lastName: 'Berto'
+    }
+
+    
   }
 }
