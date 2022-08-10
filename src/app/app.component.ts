@@ -10,6 +10,11 @@ export class AppComponent {
   title = 'angular2022';
   public person!: IPerson;
 
+  public student: string = 'example juan.'
+
+  public a = 0;
+  public b = 0;
+
   getPrint(event:IPerson) {
     console.log('HI PARENT COMPONENT:', event)
     this.person = event;
