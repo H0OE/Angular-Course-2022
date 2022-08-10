@@ -15,7 +15,7 @@ export class PersonComponent implements OnInit {
 
   ngOnInit() {}
 
-  onPrint(event: any) {
+  onPrint():void {
     this.print.emit({
       name: this.name,
       job: this.job,

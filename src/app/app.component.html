@@ -1,13 +1,9 @@
 <div>
-  <app-person name="Chasko Berto" job="Peluquero"></app-person>
-
-  <app-person name="Alfonse" job="Fonseca"></app-person>
-
   <app-person
     (print)="getPrint($event)"
     name="Dienteblan Co"
     job="Dentista"
   ></app-person>
-  <p>{{person?.job}}</p>
-<p>{{person?.name}}</p>
+  <p>{{ person?.job }}</p>
+  <p>{{ person?.name }}</p>
 </div>
