@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IPerson } from '../person/person.model';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular2022';
+  public person!: IPerson;
 
-  print(){
-    console.log("hola")
+  getPrint(event:IPerson) {
+    console.log('HI PARENT COMPONENT:', event)
+    this.person = event;
   }
 }
