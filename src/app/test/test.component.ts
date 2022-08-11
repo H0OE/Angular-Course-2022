@@ -20,4 +20,7 @@ export class TestComponent implements OnInit {
     console.log('testOnChanges');
   }
 
+  ngDoCheck() {
+    console.log('ngDoCheck');
+  }
 }

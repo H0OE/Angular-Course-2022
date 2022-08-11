@@ -11,6 +11,8 @@ export class AppComponent {
   name: string = 'Pepe Pelota';
 
   changeName() {
-    this.name = "Bialansin Ceasar";
+    this.name = this.inputChangeName;
   }
+
+
 }

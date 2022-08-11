@@ -1,7 +1,7 @@
 <div class="container">
   <app-test [name]="name"></app-test>
 
-  <input [value]="inputChangeName" type="text" name="text" class="input" placeholder="Ingrese un nombre">
+  <input [(ngModel)]="inputChangeName" type="text" name="text" class="input" placeholder="Ingrese un nombre">
 
   <button (click)="changeName()">
     <div class="svg-wrapper-1">
