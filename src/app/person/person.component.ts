@@ -1,6 +1,8 @@
 import {
   AfterContentChecked,
   AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
   Component,
   DoCheck,
   Input,
@@ -12,7 +14,15 @@ import {
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss'],
 })
-export class PersonComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked {
+export class PersonComponent
+  implements
+    OnInit,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked
+{
   @Input() name: string = '';
 
   constructor() {}
@@ -30,4 +40,12 @@ export class PersonComponent implements OnInit, DoCheck, AfterContentInit, After
   ngAfterContentChecked() {
     console.log('ngAfterContentChecked');
   }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit');
+  }
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked');
+  }
+  
 }
