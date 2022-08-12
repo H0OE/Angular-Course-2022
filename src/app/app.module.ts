@@ -21,4 +21,7 @@ import { InputComponent } from './input/input.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+
+}

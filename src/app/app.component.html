@@ -1,3 +1,8 @@
 <div class="container">
-  <app-person name="Pepe Pelota"></app-person>
+  <app-person *ngIf="showPersonDestroy" name="Pepe Pelota"></app-person>
+  <app-button (click)="onDestroyPerson()" txtBtn="Destroy"></app-button>
+
+    <app-person *ngIf="showPersonHide" name="Marco Polo"></app-person>
+    <app-button (click)="onHidePerson()" txtBtn="Hide"></app-button>
+
 </div>
