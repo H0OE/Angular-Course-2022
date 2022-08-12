@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'angular2022';
   showPersonDestroy: boolean = true;
   showPersonHide: boolean = true;
+  showText: boolean = true;
 
   onDestroyPerson() {
     console.log('onDestroyPerson');
@@ -17,5 +18,9 @@ export class AppComponent {
   onHidePerson() {
     console.log('onHidePerson');
     this.showPersonHide = false;
+  }
+  onShowText() {
+    console.log('onShowText');
+    this.showText = !this.showText;
   }
 }
