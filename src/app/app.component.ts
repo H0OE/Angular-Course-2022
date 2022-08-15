@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { map, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular2022';
-  showPersonDestroy: boolean = true;
-  showPersonHide: boolean = true;
-  showText: boolean = true;
 
-  onDestroyPerson() {
-    console.log('onDestroyPerson');
-    this.showPersonDestroy = false;
-  }
-  onHidePerson() {
-    console.log('onHidePerson');
-    this.showPersonHide = false;
-  }
-  onShowText() {
-    console.log('onShowText');
-    this.showText = !this.showText;
+  public data$ = of('Hello World');
+
+  constructor() {
+    this.data$.pipe(map((res) => res + ' -map')).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

@@ -1,14 +1,1 @@
-<div class="container">
-  <app-person *ngIf="showPersonDestroy" name="Pepe Pelota"></app-person>
-  <app-button (click)="onDestroyPerson()" txtBtn="Destroy"></app-button>
-
-  <app-person *ngIf="showPersonHide" name="Marco Polo"></app-person>
-  <app-button *ngFor="let number of [1,2]" (click)="onHidePerson()" txtBtn="Hide"></app-button>
-
-  <app-text *ngIf="showText ; else textFalse" word='Text True'></app-text>
-  <ng-template #textFalse>
-    <app-text word="Text False"></app-text>
-  </ng-template>
-  <app-button (click)="onShowText()" txtBtn="Show Text"></app-button>
-
-</div>
+HI

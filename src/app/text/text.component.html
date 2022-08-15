@@ -1,3 +1,3 @@
 <div class="spinner">
-  <span *ngFor="let letter of wordArray">{{letter}}</span>
+  <span *ngFor="let letter of wordArray; trackBy: trackItem">{{letter}}</span>
 </div>
