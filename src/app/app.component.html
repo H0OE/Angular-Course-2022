@@ -1,13 +1,19 @@
 <p>ANGULAR</p>
 
-<div *ngIf="1 === 1"> 
- <p>mostrar datos</p>
-</div>  
+<div *ngIf="1 === 1">
+  <p>mostrar datos</p>
+</div>
 
-<ng-container *ngIf="1 === 1"> 
-<p>mostrar datos 2</p>
-</ng-container>  
+<ng-container *ngIf="1 === 1">
+  <p>mostrar datos 2</p>
+</ng-container>
 
-<div *upb="false">
- mi propia directiva
-</div> 
+<input type="checkbox" [(ngModel)]="sw">show
+
+<div *upb="sw" style="border: 3px solid red;">
+  mi propia directiva
+</div>
+
+
+<input type="text" [(ngModel)]="title">
+<app-test [message]="title"></app-test>

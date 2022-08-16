@@ -2,7 +2,9 @@ import { TestRequest } from '@angular/common/http/testing';
 import {
   Directive,
   Input,
+  OnChanges,
   OnInit,
+  SimpleChanges,
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
@@ -10,7 +12,7 @@ import {
 @Directive({
   selector: '[upb]',
 })
-export class UpbDirective implements OnInit {
+export class UpbDirective implements OnInit, OnChanges {
   @Input() upb!: boolean;
 
   constructor(
@@ -18,8 +20,10 @@ export class UpbDirective implements OnInit {
     private viewContainer: ViewContainerRef
   ) {}
 
-  ngOnInit() {
-    if (this.upb) {
+  ngOnInit() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['upb'] && changes['upb'].currentValue) {
       this.viewContainer.createEmbeddedView(this.templateRef);
     } else {
       this.viewContainer.clear();
