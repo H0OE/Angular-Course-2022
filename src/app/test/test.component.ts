@@ -19,4 +19,11 @@ export class TestComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  get name() {
+    return '';
+  }
+  set name(value: string) {
+    this.name = value;
+  }
 }
