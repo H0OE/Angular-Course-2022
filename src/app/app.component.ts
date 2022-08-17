@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular2022';
   color: string = 'green';
+
+  getMessage(event: any) {
+    console.log('evento al padre:', event);
+  }
 }
