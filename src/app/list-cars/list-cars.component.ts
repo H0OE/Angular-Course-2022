@@ -51,5 +51,7 @@ export class ListCarsComponent implements OnInit {
     );
   }
 
-  selectColor(index: number, color: string) {}
+  selectColor(id: string, color: string) {
+    document.getElementById(id)!.style.backgroundColor = color;
+  }
 }

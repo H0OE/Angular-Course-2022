@@ -16,7 +16,7 @@
         <p class="text-body">CAPACITY: {{car.capacity}}</p>
         <p class="text-body">CREATION: {{car.createDate  | date: 'dd-MM-yyyy'}}</p>
 
-        <button onclick="sel" *ngFor="let item of car.color">{{item}}</button>
+        <button (click)="selectColor(i+type, item)" *ngFor="let item of car.color">{{item}}</button>
       </div>
       <div class="card-footer">
         <span class="text-title">{{car.moneyType}}{{car.price}}{{car.timeType}}</span>
