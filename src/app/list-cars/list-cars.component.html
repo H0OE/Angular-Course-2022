@@ -1,0 +1,24 @@
+  <H1 class="title">{{type}}</H1>
+
+  <div class="cards">
+
+    <div class="card" *ngFor="let car of carsToShow; let i = index ">
+      <div id="{{i+type}}" class="card-info" [ngClass]="{'red': color[i]  === 'red',
+       'green' : color[i] === 'green',
+       'yellow' : color[i] === 'yellow'
+        }">
+        <p class="text-title">TYPE: {{car.type | uppercase}} </p>
+        <p class="text-body">COLOR: </p>
+        <p class="text-body">CAPACITY: {{car.capacity}}</p>
+        <p class="text-body">CREATION: {{car.createDate  | date: 'dd-MM-yyyy'}}</p>
+
+        <button onclick="sel" *ngFor="let item of car.color">{{item}}</button>
+      </div>
+      <div class="card-footer">
+        <span class="text-title">{{car.moneyType}}{{car.price}}{{car.timeType}}</span>
+        <div class="card-button">
+          Comprar
+        </div>
+      </div>
+    </div>
+  </div>
