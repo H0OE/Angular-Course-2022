@@ -1,4 +1,6 @@
   <H1 class="title">{{type}}</H1>
+  <H1 class="title">TOTAL bs {{montoDolares}}</H1>
+  <H1 class="title">TOTAL $ {{montoBs}}</H1>
 
   <div class="cards">
 
@@ -7,6 +9,8 @@
        'green' : color[i] === 'green',
        'yellow' : color[i] === 'yellow'
         }">
+        <p class="text-title id">ID: {{auxKeys[i]}} </p>
+
         <p class="text-title">TYPE: {{car.type | uppercase}} </p>
         <p class="text-body">COLOR: </p>
         <p class="text-body">CAPACITY: {{car.capacity}}</p>
@@ -17,7 +21,7 @@
       <div class="card-footer">
         <span class="text-title">{{car.moneyType}}{{car.price}}{{car.timeType}}</span>
         <div class="card-button">
-          Comprar
+          {{btnName}}
         </div>
       </div>
     </div>

@@ -19,20 +19,37 @@ export class ListCarsComponent implements OnInit {
     (element) => element.category === 'rental'
   );
 
-  carsToShow: Car[] = []
-  
-  color: string[] = ['','','','','','','','','','','','']
+  carsToShow: Car[] = [];
+  montoDolares = 0;
+  montoBs = 0;
+
+  color: string[] = ['', '', '', '', '', '', '', '', '', '', '', ''];
+  btnName = '';
 
   constructor() {}
 
   ngOnInit(): void {
     if (this.type === 'nuevo') {
-      this.carsToShow = this.saleCars
+      this.carsToShow = this.saleCars;
+      this.btnName = 'Buy';
     } else {
-     this.carsToShow = this.rentCars 
+      this.carsToShow = this.rentCars;
+      this.btnName = 'Rent';
     }
+
+    let auxD = this.carsToShow.filter((e) => e.moneyType === 'USD');
+    this.montoDolares = auxD.reduce(
+      (sum, value) =>
+        typeof value.price == 'number' ? sum + value.price : sum,
+      0
+    );
+    let auxB = this.carsToShow.filter((e) => e.moneyType === 'BS');
+    this.montoBs = auxB.reduce(
+      (sum, value) =>
+        typeof value.price == 'number' ? sum + value.price : sum,
+      0
+    );
   }
 
-  selectColor(index: number, color:string) {
-  }
+  selectColor(index: number, color: string) {}
 }
