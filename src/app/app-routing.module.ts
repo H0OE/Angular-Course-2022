@@ -4,9 +4,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '**', redirectTo: '/product', pathMatch: 'full' },
-  { path: 'product', component: ProductComponent, data: { preload: true } },
-  { path: 'client', component: ClientComponent, data: { preload: true } },
+  { path: '', redirectTo: '/product/product1', pathMatch: 'full' },
+  {
+    path: 'product',
+    loadChildren: () =>
+      import('./product/product.module').then((m) => m.ProductModule),
+    data: { preload: true },
+  },
+  {
+    path: 'client',
+    loadChildren: () =>
+      import('./client/client.module').then((m) => m.ClientModule),
+    data: { preload: true },
+  },
 ];
 
 @NgModule({
