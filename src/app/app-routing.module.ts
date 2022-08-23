@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: '**', redirectTo: '/product', pathMatch: 'full' },
-  { path: 'product', component: ProductComponent },
-  { path: 'client', component: ClientComponent },
+  { path: '**', redirectTo: '/product', pathMatch: 'full' },
+  { path: 'product', component: ProductComponent, data: { preload: true } },
+  { path: 'client', component: ClientComponent, data: { preload: true } },
 ];
 
 @NgModule({

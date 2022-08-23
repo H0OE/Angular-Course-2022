@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  {path: 'product', redirectTo: '/product/product1', pathMatch: 'full'},
   { path: 'product1', component: Product1Component },
   { path: 'product2', component: Product2Component },
   {path: 'shared', component: SharedComponent}
