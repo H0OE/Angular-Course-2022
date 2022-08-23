@@ -5,18 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ImpurePipe } from './impure.pipe';
 import { PurePipe } from './puree.pipe';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ImpurePipe,
-    PurePipe
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, ImpurePipe, PurePipe, UserComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
