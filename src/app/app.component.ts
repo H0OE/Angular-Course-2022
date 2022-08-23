@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'test';
   data: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  constructor() {
+  constructor(private router: Router) {
     console.log('-------PURE');
     console.log(this.pureExample(3, 5));
     console.log(this.pureExample(1, 5));
@@ -27,5 +27,13 @@ export class AppComponent {
 
   impureExample(a: number, b: number) {
     return (a + b + Math.random()).toFixed();
+  }
+
+  goToUser() {
+    this.router.navigate(['/user']);
+  }
+
+  goToHome() {
+    this.router.navigate(['/']);
   }
 }
