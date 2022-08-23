@@ -6,10 +6,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { Client2Component } from './client2/client2.component';
 
 const routes: Routes = [
-  { path: 'shared', component: SharedComponent },
-  { path: 'provider', component: ProviderComponent },
+  { path: '', redirectTo: '/client/client1', pathMatch: 'full' },
   { path: 'client1', component: Client1Component },
   { path: 'client2', component: Client2Component },
+  {
+    path: 'shared',
+    loadChildren: () =>
+      import('../shared/shared.module').then((m) => m.SharedModule),
+    data: { preload: true },
+  },
+  {
+    path: 'provider',
+    loadChildren: () =>
+      import('../provider/provider.module').then((m) => m.ProviderModule),
+    data: { preload: true },
+  },
 ];
 
 @NgModule({
