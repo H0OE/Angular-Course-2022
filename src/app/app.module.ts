@@ -1,3 +1,4 @@
+import { TestService } from './test.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,7 +17,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatSliderModule,
     MatBadgeModule,
   ],
-  providers: [],
+  providers: [TestService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

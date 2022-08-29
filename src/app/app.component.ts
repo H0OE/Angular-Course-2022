@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TestService } from './test.service';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,7 @@ export class AppComponent {
   simpleContent = 'S';
   overlap = true;
   disabled = true;
+  constructor(test: TestService) {
+    console.log(test.getName());
+  }
 }
