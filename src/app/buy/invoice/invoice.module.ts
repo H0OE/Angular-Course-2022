@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { SingletonService } from './../../singleton.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -5,15 +7,8 @@ import { InvoiceRoutingModule } from './invoice-routing.module';
 import { Inv1Component } from './inv1/inv1.component';
 import { Inv2Component } from './inv2/inv2.component';
 
-
 @NgModule({
-  declarations: [
-    Inv1Component,
-    Inv2Component
-  ],
-  imports: [
-    CommonModule,
-    InvoiceRoutingModule
-  ]
+  declarations: [Inv1Component, Inv2Component],
+  imports: [CommonModule, InvoiceRoutingModule, FormsModule],
 })
-export class InvoiceModule { }
+export class InvoiceModule {}
