@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +12,13 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   public getAllProducts(): Observable<any> {
-    return this.http.get(`${this.url}/products.json`);
+    return this.http.get(`${this.url}/products.json`).pipe(
+      map((s) => Object.entries(s)),
+      map((s) => s.map((s) => ({ id: s[0], ...s[1] })))
+    );
+  }
+
+  public createProduct(body: any): Observable<any> {
+    return this.http.post(`${this.url}/products.json`, body);
   }
 }

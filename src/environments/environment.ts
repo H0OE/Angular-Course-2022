@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   app: {
-    apiUrlBase: 'https://lol-jarrod-default-rtdb.firebaseio.com',
+    apiUrlBase: 'https://angularupb-2022-default-rtdb.firebaseio.com',
   },
 };
 
