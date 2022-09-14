@@ -14,10 +14,18 @@ export class CarService {
   getAllCars(): Observable<any> {
     return this.http.get(`${this.url}/cars.json`);
   }
-  public getAllTorneos(): Observable<any> {
+  getAllTorneos(): Observable<any> {
     return this.http.get(`${this.url}/data.json`).pipe(
       map((s) => Object.entries(s)),
       map((s) => s.map((s) => ({ id: s[0], ...s[1] })))
     );
+  }
+
+  postTorneo(body: {
+    endDate: Date;
+    startDate: Date;
+    title: string;
+  }): Observable<any> {
+    return this.http.post(`${this.url}/data.json`, body);
   }
 }

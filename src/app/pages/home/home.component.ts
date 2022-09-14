@@ -4,6 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { Store } from '@ngrx/store';
 import { closeSidePanel, openSidePanel } from '../../redux/home.actions';
 import { RootState } from '../../redux';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   templateUrl: './home.component.html',
@@ -12,6 +13,7 @@ import { RootState } from '../../redux';
 export class HomeComponent implements OnInit {
   title = 'test';
   openPanel: boolean = false;
+  formTorneo!: FormGroup;
 
   showFiller = false;
 
@@ -20,8 +22,15 @@ export class HomeComponent implements OnInit {
   constructor(
     private carService: CarService,
     private authService: AuthService,
-    private store: Store
-  ) {}
+    private store: Store,
+    private formBuilder: FormBuilder
+  ) {
+    this.formTorneo = this.formBuilder.group({
+      title: ['', [Validators.required]],
+      startDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit() {
     this.carService.getAllTorneos().subscribe((res) => {
@@ -59,6 +68,15 @@ export class HomeComponent implements OnInit {
       this.onOpenSidePanel();
     } else {
       this.onCloseSidePanel();
+    }
+  }
+
+  onCreateTorneo() {
+    console.log(this.formTorneo.value);
+    if (this.formTorneo.valid) {
+      this.carService.postTorneo(this.formTorneo.value).subscribe((res) => {
+        console.log('Torneo publicado');
+      });
     }
   }
 }
