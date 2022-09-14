@@ -76,6 +76,7 @@ export class HomeComponent implements OnInit {
     if (this.formTorneo.valid) {
       this.carService.postTorneo(this.formTorneo.value).subscribe((res) => {
         console.log('Torneo publicado');
+        this.openPanel = !this.openPanel;
       });
     }
   }
