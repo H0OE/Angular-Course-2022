@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class SiginComponent implements OnInit {
   formR!: FormGroup;
+  requerido = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -18,7 +19,7 @@ export class SiginComponent implements OnInit {
   ) {
     this.formR = this.formBuilder.group({
       correo: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
   ngOnInit(): void {}
@@ -28,13 +29,16 @@ export class SiginComponent implements OnInit {
     if (this.formR.valid) {
       this.authService
         .createUser({
-          email: 'test2@test.com',
-          password: '123456',
+          email: this.formR.value.correo,
+          password: this.formR.value.password,
           returnSecureToken: true,
         })
         .subscribe((res) => {
           console.log('CREATE USER: ', res);
+          this.router.navigate(['/login']);
         });
+    } else {
+      this.requerido = true;
     }
   }
 }

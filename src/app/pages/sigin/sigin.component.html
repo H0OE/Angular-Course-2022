@@ -20,8 +20,9 @@
         <input formControlName="password" autocomplete="off" id="logpass" placeholder="Password" class="input-field"
           name="logpass" type="password">
       </div>
+      <p class="btn-link" *ngIf="requerido">Campos requerido y contraseña > 6</p>
       <button class="btn" type="submit">Sigin</button>
-      <!-- <a href="#" class="btn-link">Forgot your password?</a> -->
+      <a href="/login" class="btn-link">Login</a>
     </form>
   </div>
 </div>
