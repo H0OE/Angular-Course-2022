@@ -11,6 +11,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './redux';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 const routes: Routes = [
   {
     path: '',
@@ -48,6 +50,7 @@ const routes: Routes = [
     FormsModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
+    CommonModule,
   ],
   providers: [
     {

@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {CarService} from "../services/car.service";
-import {AuthService} from "../services/auth.service";
-import {Store} from "@ngrx/store";
-import {closeSidePanel, openSidePanel} from "../../redux/home.actions";
-import {RootState} from "../../redux";
+import { Component, OnInit } from '@angular/core';
+import { CarService } from '../services/car.service';
+import { AuthService } from '../services/auth.service';
+import { Store } from '@ngrx/store';
+import { closeSidePanel, openSidePanel } from '../../redux/home.actions';
+import { RootState } from '../../redux';
 
 @Component({
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   title = 'test';
@@ -15,23 +15,27 @@ export class HomeComponent implements OnInit {
 
   showFiller = false;
 
-  constructor(private carService: CarService,
-              private authService: AuthService,
-              private store: Store) {
-  }
+  torneos: { endDate: Date; id: number; startDate: Date; title: string }[] = [];
+
+  constructor(
+    private carService: CarService,
+    private authService: AuthService,
+    private store: Store
+  ) {}
 
   ngOnInit() {
-    this.carService.getAllCars().subscribe(res => {
-      console.log('RESPONSE CARS: ', res)
+    this.carService.getAllTorneos().subscribe((res) => {
+      console.log('RESPONSE CARS: ', res);
+      this.torneos = res;
+    });
 
-    })
-
-    this.store.select((s: any) => s.home).subscribe(s => {
-      console.log('STORE: ', s)
-      this.openPanel = s.sidePanel;
-      console.log('RESPONSE CARS: ', s, this.openPanel)
-    })
-
+    this.store
+      .select((s: any) => s.home)
+      .subscribe((s) => {
+        console.log('STORE: ', s);
+        this.openPanel = s.sidePanel;
+        console.log('RESPONSE CARS: ', s, this.openPanel);
+      });
   }
 
   /**
@@ -43,12 +47,18 @@ export class HomeComponent implements OnInit {
   }
 
   onOpenSidePanel() {
-    this.store.dispatch(openSidePanel())
+    this.store.dispatch(openSidePanel());
   }
 
   onCloseSidePanel() {
-    this.store.dispatch(closeSidePanel())
+    this.store.dispatch(closeSidePanel());
   }
 
-
+  sidePanel() {
+    if (!this.openPanel) {
+      this.onOpenSidePanel();
+    } else {
+      this.onCloseSidePanel();
+    }
+  }
 }
